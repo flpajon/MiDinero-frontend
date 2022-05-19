@@ -4,6 +4,10 @@ import { NormalUserRoutingModule } from './normal-user-routing.module';
 import { NormalUserComponent } from './normal-user.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { SidebarModule } from 'ng-sidebar';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MovementListComponent } from './movement-list/movement-list.component';
 
 
 
@@ -11,11 +15,15 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   declarations: [
     NormalUserComponent,
     NavBarComponent,
-    SideBarComponent
+    SideBarComponent,
+    MovementListComponent
   ],
   imports: [
     CommonModule,
-    NormalUserRoutingModule
+    NormalUserRoutingModule,
+    SidebarModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
   ]
 })
 export class NormalUserModule { }

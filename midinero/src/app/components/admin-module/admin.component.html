@@ -1,11 +1,11 @@
-<div class="content w-100">
+<div class="content w-100 h-100 d-flex flex-column">
     <app-nav-bar></app-nav-bar>
-    <ng-sidebar-container class="vh-100 d-flex flex-row">
+    <ng-sidebar-container>
         <ng-sidebar [(opened)]="statusSideBar">
             <app-side-bar></app-side-bar>
         </ng-sidebar>
-        <div ng-sidebar-content class="h-100">
-                <router-outlet></router-outlet>
+        <div ng-sidebar-content class="h-100 sidebar-content">
+            <router-outlet></router-outlet>
         </div>
     </ng-sidebar-container>
 </div>

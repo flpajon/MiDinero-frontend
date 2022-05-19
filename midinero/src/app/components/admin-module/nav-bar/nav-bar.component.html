@@ -1,12 +1,10 @@
 <nav class="navbar navbar-light bg-light">
     <div class="d-flex flex-row justify-content-between ps-4 pe-4 w-100 aling-items-center">
-        <div>
-            <a class="navbar-brand d-flex">
-                <img src="/assets/images/midinero.png" class="d-inline-block align-text-top me-3">
-                Mi Dinero
-            </a>
+        <div class="d-flex flex-row justify-content-start col-3 p-0">
+            <img src="/assets/images/midinero.png" class="d-inline-block align-text-top">
+            <span class="align-self-center ms-3">Mi Dinero</span>
         </div>
-        <div class="p-2">
+        <div class="d-flex justify-content-end p-2 col-3 p-0">
             <span class="description">{{currentUser.userDTO.userPerson.personName ?? ''}}</span>
         </div>
     </div>

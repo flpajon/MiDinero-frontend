@@ -5,6 +5,7 @@ import { Observable, throwError } from "rxjs";
 import { catchError, finalize } from "rxjs/operators";
 import { Authentication } from "src/app/models/authentication";
 import { StateDTO } from "src/app/models/common";
+import { ModalService } from "src/app/services/modal.service";
 import { SpinnerService } from "src/app/services/spinner.service";
 import { StorageAppService } from "src/app/services/storage.service";
 import { environment } from "src/environments/environment";
@@ -14,7 +15,7 @@ import { environment } from "src/environments/environment";
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-    constructor(private spinnerService: SpinnerService, private router: Router, private storageService: StorageAppService) { }
+    constructor(private modalService: ModalService, private spinnerService: SpinnerService, private router: Router, private storageService: StorageAppService) { }
 
     pendings: number = 0;
 
@@ -38,15 +39,22 @@ export class HttpInterceptorService implements HttpInterceptor {
             catchError(response => {
                 let error: StateDTO = response.error;
                 if (error.statusCode == 500) {
+                    this.modalService.openInformationModal(error.statusMessage);
                     return throwError(error.statusMessage);
                 }
                 if (error.statusCode == 401) {
-                    return throwError('Expedited or bad token.');
+                    let message = 'Expedited or bad token'
+                    this.modalService.openInformationModal(message);
+                    return throwError(message);
                 }
                 if (error.statusCode == 403) {
-                    return throwError('Unauthorized user');
+                    let message = 'Unauthorized user'
+                    this.modalService.openInformationModal(message);
+                    return throwError(message);
                 }
-                return throwError('Unknown error');
+                let message = 'Conection problems'
+                this.modalService.openInformationModal(message);
+                return throwError(message);
             }));
     }
 
@@ -61,6 +69,7 @@ export class HttpInterceptorService implements HttpInterceptor {
                     Authorization: currentUser.token
                 }
             });
+            return requestClone;
         }
         requestClone = request.clone();
         return requestClone;

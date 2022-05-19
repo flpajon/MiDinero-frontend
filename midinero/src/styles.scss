@@ -14,8 +14,12 @@ $verde-claro: #41bfaa;
 $verde-claro-opaco: #41bfaa91;
 $verde-oscuro: #37a08e;
 $rojo-invalid: #ff6961;
+$bg-color: #e7f3f1;
 .content {
-    background-color: #e7f3f1;
+    background-color: $bg-color;
+}
+body {
+    height: 100vh;
 }
 .card {
     overflow: hidden;
@@ -102,17 +106,69 @@ $rojo-invalid: #ff6961;
     font-family: RobotoLight;
     font-size: 15px;
 }
+.item-menu {
+    font-family: RobotoLight;
+    font-size: 13px;
+    cursor: pointer;
+}
+.item-menu:hover {
+    background-color: $bg-color;
+    border-top-left-radius: 160px;
+    border-bottom-left-radius: 160px;
+}
+.item-selected {
+    background-color: $bg-color;
+    border-top-left-radius: 160px;
+    border-bottom-left-radius: 160px;
+}
 .navbar {
     background-color: white !important;
-    box-shadow: 0 0.1rem $verde-claro-opaco;
 }
 aside {
     width: 13%;
     background-color: white;
-    box-shadow: 0.1rem 0 $verde-claro-opaco;
 }
 .ng-sidebar__content {
     margin-left: auto;
     width: 87%;
-    padding: 0px;
+}
+hr:not([size]) {
+    height: 0.5px;
+}
+.table > :not(:first-child) {
+    border-top: none;
+}
+.table-responsive {
+    border: 1px solid $verde-claro;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0 0.2rem $verde-claro-opaco;
+}
+.col-custom-6 {
+    flex: 0 0 auto;
+    width: 48%;
+}
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.modal-dialog {
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        margin-left: -5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $verde-claro;
+        border-radius: 50px;
+    }
+}
+.password-ico {
+    margin-left: -2rem;
+    color: $verde-claro;
+    cursor: pointer;
+}
+.text-center{
+    text-align: center;
 }

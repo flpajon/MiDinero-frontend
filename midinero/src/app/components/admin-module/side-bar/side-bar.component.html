@@ -1,6 +1,11 @@
-<div class="d-flex flex-column justify-content-center p-4">
-    <div class="d-flex flex-row justify-content-between description">
-        <span>Lista Usuarios</span>
-        <span>></span>
+<div class="d-flex flex-column justify-content-center">
+    <div *ngFor="let menu of menuList">
+        <div class="d-flex flex-row justify-content-between item-menu p-2 ps-3 pe-3 rounded-start-3"
+            [ngClass]="{'item-selected': menu.menuEndpoint == itemSelected}" (click)="goToEndpoint(menu.menuEndpoint)">
+            <span>{{menu.menuName}}</span>
+            <div class="align-items-center">
+                <fa-icon [icon]="faAngleRight"></fa-icon>
+            </div>
+        </div>
     </div>
 </div>

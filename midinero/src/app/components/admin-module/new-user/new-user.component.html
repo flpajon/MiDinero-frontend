@@ -1,0 +1,76 @@
+<form [formGroup]="formUser" class="needs-validation">
+    <div class="d-flex flex-column p-4">
+        <span class="title mb-2">Registrar nuevo usuario</span>
+        <div class="mb-3">
+            <label for="personEmailInput" class="form-label">Email</label>
+            <input formControlName="personEmail" type="text" class="form-control" id="personEmailInput"
+                placeholder="Ingrese su email"
+                [ngClass]="{'invalid-input' : (formControls.personEmail.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.personEmail.errors && formControls.personEmail.errors.required && submitted">
+                Campo
+                requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="personNameInput" class="form-label">Nombre</label>
+            <input formControlName="personName" type="text" class="form-control" id="personNameInput"
+                placeholder="Ingrese su nombre"
+                [ngClass]="{'invalid-input' : (formControls.personName.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.personName.errors && formControls.personName.errors.required && submitted">Campo
+                requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="personSurnameInput" class="form-label">Apellido</label>
+            <input formControlName="personSurname" type="text" class="form-control" id="personSurnameInput"
+                placeholder="Ingrese su apellido"
+                [ngClass]="{'invalid-input' : (formControls.personSurname.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.personSurname.errors && formControls.personSurname.errors.required && submitted">
+                Campo
+                requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="userNameInput" class="form-label">Usuario</label>
+            <input formControlName="userName" type="text" class="form-control" id="userNameInput"
+                placeholder="Ingrese su usuario"
+                [ngClass]="{'invalid-input' : (formControls.userName.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.userName.errors && formControls.userName.errors.required && submitted">
+                Campo
+                requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="userPasswordInput" class="form-label">Contraseña</label>
+            <div class="d-flex flex-row align-items-center">
+                <input formControlName="userPassword" type="{{showhideuserpass}}" class="form-control"
+                    id="userPasswordInput" placeholder="Ingrese su contraseña"
+                    [ngClass]="{'invalid-input' : (formControls.userPassword.errors  && submitted)}"  (click)="cleanConfirmPassword()">
+                <fa-icon class="password-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
+            </div>
+            <div class="invalid-feedback"
+                *ngIf="formControls.userPassword.errors && formControls.userPassword.errors.required && submitted">
+                Campo
+                requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassInput" class="form-label">Confirmar contraseña</label>
+            <div class="d-flex flex-row align-items-center">
+                <input formControlName="confirmPass" type="{{showhideconfirmpass}}" class="form-control"
+                    id="confirmPassInput" placeholder="Confirmar contraseña"
+                    [ngClass]="{'invalid-input' : (formControls.confirmPass.errors && submitted)}">
+                <fa-icon class="password-ico" [icon]="faEye" (click)="changestatusconfirmpass()"></fa-icon>
+            </div>
+            <div class="invalid-feedback"
+                *ngIf="formControls.confirmPass.errors && formControls.confirmPass.errors.required && submitted">
+                Campo
+                requerido</div>
+            <div class="invalid-feedback" *ngIf="formControls.confirmPass.errors && !formControls.confirmPass.errors.required && formControls.confirmPass.errors.NotEqual && submitted">
+                Las contraseñas no coinciden</div>
+        </div>
+        <div class="d-flex flex-row justify-content-between w-100">
+            <button class="btn btn-custom-outline btn-block col-custom-6" (click)="back()">Volver</button>
+            <button class="btn btn-custom btn-block col-custom-6" (click)="saveNewUser()">Guardar</button>
+        </div>
+    </div>
+</form>

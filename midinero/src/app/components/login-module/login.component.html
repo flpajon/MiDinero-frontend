@@ -15,9 +15,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="passwordInput" class="form-label">contraseña</label>
-                    <input formControlName="password" type="password" class="form-control" id="passwordInput"
-                        placeholder="Ingrese su contraseña"
-                        [ngClass]="{'invalid-input' : (formControls.password.errors && submitted)}">
+                    <div class="d-flex flex-row align-items-center">
+                        <input formControlName="password" type="{{showhideuserpass}}" class="form-control"
+                            id="passwordInput" placeholder="Ingrese su contraseña"
+                            [ngClass]="{'invalid-input' : (formControls.password.errors && submitted)}">
+                        <fa-icon class="password-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
+                    </div>
                     <span class="invalid-feedback mt-2"
                         *ngIf="formControls.password.errors && formControls.password.errors.required && submitted">Campo
                         requerido</span>

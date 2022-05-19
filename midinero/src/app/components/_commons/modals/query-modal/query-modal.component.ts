@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-query-modal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() title: string = '';
+  @Input() message: string = '';
+
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+  }
+
+  close(result: boolean) {
+    this.activeModal.close(result);
   }
 
 }

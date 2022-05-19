@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NormalUserComponent implements OnInit {
 
+  statusSideBar: boolean = true;
+  
   constructor() { }
 
   ngOnInit(): void {

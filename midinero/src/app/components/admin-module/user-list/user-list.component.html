@@ -1,3 +1,35 @@
-<div class="d-flex flex-column justify-content-center p-4">
-    <span>asd</span>
+<div class="d-flex flex-column justify-content-start p-4 h-100">
+    <div class="d-flex flex-column card p-4">
+        <div class="d-flex flex-row justify-content-between align-items-center mb-4">
+            <span class="title">Lista de usuarios</span>
+            <button class="btn btn-custom" (click)="openNewUserScreen()">
+                <fa-icon class="me-2" [icon]="faUserPlus"></fa-icon>Nuevo usuario
+            </button>
+        </div>
+        <div class="table-responsive p-2">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope=" col">Usuario</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userList" (click)=foActionItem(user)>
+                        <td>{{user.userName | titlecase}}</td>
+                        <td>{{user.userPerson.personEmail | titlecase}}</td>
+                        <td>{{user.userPerson.personName | titlecase}}</td>
+                        <td *ngIf="user.userIsActive">
+                            <fa-icon class="me-2" [icon]="faCircleCheck"></fa-icon>
+                        </td>
+                        <td  *ngIf="!user.userIsActive">
+                            <fa-icon class="me-2" [icon]="faBan"></fa-icon>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
