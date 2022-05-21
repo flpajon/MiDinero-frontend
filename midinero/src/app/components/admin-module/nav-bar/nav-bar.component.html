@@ -1,11 +1,25 @@
 <nav class="navbar navbar-light bg-light">
     <div class="d-flex flex-row justify-content-between ps-4 pe-4 w-100 aling-items-center">
-        <div class="d-flex flex-row justify-content-start col-3 p-0">
-            <img src="/assets/images/midinero.png" class="d-inline-block align-text-top">
-            <span class="align-self-center ms-3">Mi Dinero</span>
+      <div class="d-flex flex-row justify-content-start col-3 p-0">
+        <img src="/assets/images/midinero.png" class="d-inline-block align-text-top">
+        <span class="align-self-center ms-3">Mi Dinero</span>
+      </div>
+      <div class="d-flex justify-content-end p-2 col-3 p-0">
+        <div class="d-flex flex-row justify-content-center selectable">
+          <div class="btn-group dropstart">
+            <div class="dropdown selectable align-items-center mb-1 ms-2">
+              <button class="btn btn-dropdown dropdown-toggle description" type="button" id="userOptions"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {{currentUser.userDTO.userPerson.personName ??
+                ''}}
+                <fa-icon class="mb-2 ms-2" [icon]="faSortDown"  [fixedWidth]="true"></fa-icon>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="userOptions">
+                <li><a class="dropdown-item" (click)="goToLogin()">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="d-flex justify-content-end p-2 col-3 p-0">
-            <span class="description">{{currentUser.userDTO.userPerson.personName ?? ''}}</span>
-        </div>
+      </div>
     </div>
-</nav>
+  </nav>

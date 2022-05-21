@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, throwError } from "rxjs";
@@ -37,7 +37,12 @@ export class HttpInterceptorService implements HttpInterceptor {
                 }
             }),
             catchError(response => {
-                let error: StateDTO = response.error;
+                let error: StateDTO;
+                if (response instanceof HttpErrorResponse) {
+                    error = new StateDTO(response.status, response.message);
+                } else {
+                    error = response.error;
+                }
                 if (error.statusCode == 500) {
                     this.modalService.openInformationModal(error.statusMessage);
                     return throwError(error.statusMessage);
@@ -45,11 +50,13 @@ export class HttpInterceptorService implements HttpInterceptor {
                 if (error.statusCode == 401) {
                     let message = 'Expedited or bad token'
                     this.modalService.openInformationModal(message);
+                    this.router.navigate(['login']);
                     return throwError(message);
                 }
                 if (error.statusCode == 403) {
                     let message = 'Unauthorized user'
                     this.modalService.openInformationModal(message);
+                    this.router.navigate(['login']);
                     return throwError(message);
                 }
                 let message = 'Conection problems'

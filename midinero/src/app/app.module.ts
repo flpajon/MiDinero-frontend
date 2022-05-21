@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +26,8 @@ import { QueryModalComponent } from './components/_commons/modals/query-modal/qu
     AppRoutingModule,
     NgxSpinnerModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },

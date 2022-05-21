@@ -8,8 +8,10 @@
                 [ngClass]="{'invalid-input' : (formControls.personEmail.errors && submitted)}">
             <div class="invalid-feedback"
                 *ngIf="formControls.personEmail.errors && formControls.personEmail.errors.required && submitted">
-                Campo
-                requerido</div>
+                Campo requerido</div>
+            <div class="invalid-feedback"
+                *ngIf="formControls.personEmail.errors && !formControls.personEmail.errors.required && formControls.personEmail.errors.pattern && submitted">
+                Ingrese un email valido</div>
         </div>
         <div class="mb-3">
             <label for="personNameInput" class="form-label">Nombre</label>
@@ -45,8 +47,9 @@
             <div class="d-flex flex-row align-items-center">
                 <input formControlName="userPassword" type="{{showhideuserpass}}" class="form-control"
                     id="userPasswordInput" placeholder="Ingrese su contraseña"
-                    [ngClass]="{'invalid-input' : (formControls.userPassword.errors  && submitted)}"  (click)="cleanConfirmPassword()">
-                <fa-icon class="password-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
+                    [ngClass]="{'invalid-input' : (formControls.userPassword.errors  && submitted)}"
+                    (click)="cleanConfirmPassword()">
+                <fa-icon class="over-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
             </div>
             <div class="invalid-feedback"
                 *ngIf="formControls.userPassword.errors && formControls.userPassword.errors.required && submitted">
@@ -59,13 +62,14 @@
                 <input formControlName="confirmPass" type="{{showhideconfirmpass}}" class="form-control"
                     id="confirmPassInput" placeholder="Confirmar contraseña"
                     [ngClass]="{'invalid-input' : (formControls.confirmPass.errors && submitted)}">
-                <fa-icon class="password-ico" [icon]="faEye" (click)="changestatusconfirmpass()"></fa-icon>
+                <fa-icon class="over-ico" [icon]="faEye" (click)="changestatusconfirmpass()"></fa-icon>
             </div>
             <div class="invalid-feedback"
                 *ngIf="formControls.confirmPass.errors && formControls.confirmPass.errors.required && submitted">
                 Campo
                 requerido</div>
-            <div class="invalid-feedback" *ngIf="formControls.confirmPass.errors && !formControls.confirmPass.errors.required && formControls.confirmPass.errors.NotEqual && submitted">
+            <div class="invalid-feedback"
+                *ngIf="formControls.confirmPass.errors && !formControls.confirmPass.errors.required && formControls.confirmPass.errors.NotEqual && submitted">
                 Las contraseñas no coinciden</div>
         </div>
         <div class="d-flex flex-row justify-content-between w-100">

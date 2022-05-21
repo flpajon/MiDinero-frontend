@@ -2,8 +2,8 @@
     <div *ngFor="let menu of menuList">
         <div class="d-flex flex-row justify-content-between item-menu p-2 ps-3 pe-3 rounded-start-3"
             [ngClass]="{'item-selected': menu.menuEndpoint == itemSelected}" (click)="goToEndpoint(menu.menuEndpoint)">
-            <span>{{menu.menuName}}</span>
-            <div class="align-items-center">
+            <span class="col-10">{{menu.menuName}}</span>
+            <div class="align-items-center col-1">
                 <fa-icon [icon]="faAngleRight"></fa-icon>
             </div>
         </div>

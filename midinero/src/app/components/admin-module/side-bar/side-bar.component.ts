@@ -26,6 +26,9 @@ export class SideBarComponent implements OnInit {
   loadMenuList() {
     this.menuService.getMenuList().subscribe(response => {
       this.menuList = response.menuList.map(menuDTO => new Menu(menuDTO.menuName, menuDTO.menuEndpoint));
+      if (this.menuList.length > 0) {
+        this.goToEndpoint(this.menuList[0].menuEndpoint);
+      }
     });
   }
 

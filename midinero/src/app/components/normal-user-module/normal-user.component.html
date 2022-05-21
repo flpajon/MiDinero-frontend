@@ -5,7 +5,14 @@
             <app-side-bar></app-side-bar>
         </ng-sidebar>
         <div ng-sidebar-content class="h-100 sidebar-content">
-            <router-outlet></router-outlet>
+            <div class="d-flex flex-column justify-content-between" style="max-height: 100%;">
+                <div style="height: 20vh; overflow-y: auto;">
+                    <app-information-dashboard></app-information-dashboard>
+                </div>
+                <div class="dashboard">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
     </ng-sidebar-container>
 </div>

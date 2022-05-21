@@ -8,6 +8,11 @@ import { NormalUserModule } from './components/normal-user-module/normal-user.mo
 
 const routes: Routes = [
   {
+    path: "",
+    redirectTo: "login",
+    pathMatch: "full"
+  },
+  {
     path: "login",
     loadChildren: () => LoginModule
   },

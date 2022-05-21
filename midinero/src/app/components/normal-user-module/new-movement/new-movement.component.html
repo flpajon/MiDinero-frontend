@@ -1,0 +1,43 @@
+<form [formGroup]="formMovement" class="needs-validation">
+    <div class="d-flex flex-column p-4">
+        <span class="title mb-2">Registrar nuevo movimiento</span>
+        <div class="mb-3">
+            <label for="movementTypeSelect" class="form-label">Tipo de movimiento</label>
+            <div class="d-flex flex-row">
+                <ng-select #movementType formControlName="movementType" bindLabel="movementTypeName"
+                    [items]="movementTypeList" class="form-control p-0" id="movementTypeSelect"
+                    [clearable]="false" [searchable]="false"
+                    [ngClass]="{'invalid-input' : (formControls.movementType.errors && submitted)}">
+                </ng-select>
+                <fa-icon class="over-ico pt-2" [icon]="faSortDown" (click)="movementType.toggle()"></fa-icon>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="movementAmountInput" class="form-label">Monto</label>
+            <input formControlName="movementAmount" type="text" class="form-control" id="movementAmountInput"
+                placeholder="Ingrese el monto del movimiento"
+                [ngClass]="{'invalid-input' : (formControls.movementAmount.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.movementAmount.errors && formControls.movementAmount.errors.required && submitted">
+                Campo
+                requerido</div>
+            <div class="invalid-feedback"
+                *ngIf="formControls.movementAmount.errors && !formControls.movementAmount.errors.required && formControls.movementAmount.errors.pattern && submitted">
+                Ingrese un monto valido. (Para separar los centavos utilice "."</div>
+        </div>
+        <div class="mb-3">
+            <label for="movementDescriptionInput" class="form-label">Descripcion</label>
+            <input formControlName="movementDescription" type="text" class="form-control" id="movementDescriptionInput"
+                placeholder="Ingrese una descripcion del movimiento"
+                [ngClass]="{'invalid-input' : (formControls.movementDescription.errors && submitted)}">
+            <div class="invalid-feedback"
+                *ngIf="formControls.movementDescription.errors && formControls.movementDescription.errors.required && submitted">
+                Campo
+                requerido</div>
+        </div>
+        <div class="d-flex flex-row justify-content-between w-100">
+            <button class="btn btn-custom-outline btn-block col-custom-6" (click)="back()">Volver</button>
+            <button class="btn btn-custom btn-block col-custom-6" (click)="saveNewMovement()">Guardar</button>
+        </div>
+    </div>
+</form>

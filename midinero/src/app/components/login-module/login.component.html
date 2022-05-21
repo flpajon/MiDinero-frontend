@@ -19,7 +19,7 @@
                         <input formControlName="password" type="{{showhideuserpass}}" class="form-control"
                             id="passwordInput" placeholder="Ingrese su contraseña"
                             [ngClass]="{'invalid-input' : (formControls.password.errors && submitted)}">
-                        <fa-icon class="password-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
+                        <fa-icon class="over-ico" [icon]="faEye" (click)="changestatususerpass()"></fa-icon>
                     </div>
                     <span class="invalid-feedback mt-2"
                         *ngIf="formControls.password.errors && formControls.password.errors.required && submitted">Campo

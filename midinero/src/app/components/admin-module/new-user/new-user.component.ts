@@ -14,7 +14,6 @@ import { UserService } from 'src/app/services/user.service';
 export class NewUserComponent implements OnInit {
 
   submitted: boolean = false;
-  noMatchPassword: boolean = false;
 
   showhideuserpass: string = 'password';
   showhideconfirmpass: string = 'password';
@@ -22,7 +21,7 @@ export class NewUserComponent implements OnInit {
   faEye = faEye;
 
   formUser: FormGroup = new FormGroup({
-    personEmail: new FormControl(null, [Validators.required]),
+    personEmail: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')]),
     personName: new FormControl(null, [Validators.required]),
     personSurname: new FormControl(null, [Validators.required]),
     userName: new FormControl(null, [Validators.required]),

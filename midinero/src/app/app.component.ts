@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'midinero';
 
   constructor(private router: Router){
-    router.navigate(['login']);
+    //router.navigate(['login']);
   }
 }

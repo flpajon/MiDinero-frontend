@@ -1,0 +1,15 @@
+<div class="d-flex flex-row justify-content-between pt-4 ps-1 pe-1 ms-4 me-4 pb-1 h-100" style="overflow-x: auto; ">
+    <div class="card card-selectable col-custom-6 p-4 d-flex flex-row flex-wrap align-items-center h-100"
+        [ngClass]=" accountStatus >= 0 ? 'positiveAccountState' : 'negativeAccountState'">
+        <span class="card-title col-4 col-xxl-4 m-0">SALDO: </span>
+        <span class="card-amount col-4 col-xxl-4 m-0">{{accountStatus |
+            currency}}</span>
+        <span class="card-description col-4 col-xxl-4 m-0">{{month | uppercase}}</span>
+    </div>
+    <div class="card card-selectable  col-4 p-4 d-flex flex-row flex-wrap align-items-center h-100 ms-3 me-3">
+
+    </div>
+    <div class="card card-selectable col-4 p-4 d-flex flex-row flex-wrap align-items-center h-100">
+
+    </div>
+</div>

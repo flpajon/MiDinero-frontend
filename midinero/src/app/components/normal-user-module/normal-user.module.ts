@@ -5,9 +5,13 @@ import { NormalUserComponent } from './normal-user.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SidebarModule } from 'ng-sidebar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MovementListComponent } from './movement-list/movement-list.component';
+import { CurrentMovementListComponent } from './current-movement-list/current-movement-list.component';
+import { HistoricalMovementListComponent } from './historical-movement-list/historical-movement-list.component';
+import { NewMovementComponent } from './new-movement/new-movement.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { InformationDashboardComponent } from './information-dashboard/information-dashboard.component';
 
 
 
@@ -16,14 +20,19 @@ import { MovementListComponent } from './movement-list/movement-list.component';
     NormalUserComponent,
     NavBarComponent,
     SideBarComponent,
-    MovementListComponent
+    CurrentMovementListComponent,
+    HistoricalMovementListComponent,
+    NewMovementComponent,
+    InformationDashboardComponent
   ],
   imports: [
     CommonModule,
     NormalUserRoutingModule,
     SidebarModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ]
 })
 export class NormalUserModule { }

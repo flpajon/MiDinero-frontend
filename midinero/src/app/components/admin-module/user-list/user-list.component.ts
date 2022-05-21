@@ -38,7 +38,7 @@ export class UserListComponent implements OnInit {
       if (result) {
         this.loadUserList();
       }
-    })
+    });
   }
 
   foActionItem(user: User) {
