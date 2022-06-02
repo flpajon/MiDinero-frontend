@@ -20,11 +20,11 @@
                         <td>{{movement.movementDate | date: 'dd/MM/yyyy'}}</td>
                         <td>{{movement.movementType.movementTypeName | titlecase}}</td>
                         <td>{{movement.movementDescription | titlecase}}</td>
-                        <td>{{movement.movementAmount | currency}}</td>
-                        <td *ngIf="movement.movementType.movementIsPositive">
+                        <td [ngClass]="movement.movementType.movementIsPositive ? 'td-bold td-income' : 'td-bold td-outflows'">{{movement.movementAmount | currency}}</td>
+                        <td *ngIf="movement.movementType.movementIsPositive" [ngClass]="movement.movementType.movementIsPositive ? 'td-bold td-income' : 'td-bold td-outflows'">
                             <fa-icon class="me-2" [icon]="faUp"></fa-icon>
                         </td>
-                        <td *ngIf="!movement.movementType.movementIsPositive">
+                        <td *ngIf="!movement.movementType.movementIsPositive" [ngClass]="movement.movementType.movementIsPositive ? 'td-bold td-income' : 'td-bold td-outflows'">
                             <fa-icon class="me-2" [icon]="faDown"></fa-icon>
                         </td>
                     </tr>

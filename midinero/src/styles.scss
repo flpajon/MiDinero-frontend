@@ -30,13 +30,13 @@ body {
     box-shadow: 0 1.5em 2.5em -0.5em rgba(#eb9878, 0.1);
 }
 .btn-custom {
-    background-color: $verde-claro;
+    background-color: $verde-oscuro;
     color: white;
     font-family: Roboto;
     height: 50px;
 }
 .btn-custom:hover {
-    background-color: $verde-oscuro;
+    background-color: $verde-claro;
     color: white;
     font-family: Roboto;
 }
@@ -191,15 +191,28 @@ hr:not([size]) {
 .text-center {
     text-align: center;
 }
-.tr-income {
-    background-color: $verde-claro-income;
+.td-income {
+    color: $verde-oscuro;
 }
-.tr-outflows {
-    background-color: $rojo-outflows;
+.tr-income:hover {
+    background-color: $verde-claro;
+}
+.td-outflows {
+    color: $rojo-invalid;
+}
+.table-hover>tbody>tr:hover>* {
+        color: white;
+}
+.tr-outflows:hover {
+    background-color: $rojo-invalid;
 }
 td {
     font-family: Roboto;
     font-size: 13px;
+}
+.td-bold {
+    font-family: RobotoBold;
+    font-size: 15px;
 }
 .ng-option {
     padding-top: 0.5rem;

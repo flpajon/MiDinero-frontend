@@ -72,3 +72,29 @@ export class MovementsAccountStatusResponseDTO {
         this.accountDate = accountDate;
     }
 }
+
+export class MovementAccountResponseDTO {
+    stateMovementCount: StateDTO;
+    movementCountList: Array<MovementAccountDTO>;
+
+    constructor(stateMovementCount: StateDTO, movementCountList: Array<MovementAccountDTO>) {
+        this.stateMovementCount = stateMovementCount;
+        this.movementCountList = movementCountList;
+    }
+}
+
+export class MovementAccountDTO {
+    yearPeriodMovement: string;
+    monthPeriodMovement: string;
+    dayPeriodMovement: string;
+    totalPositiveMomement: number;
+    totalNegativeMomement: number;
+
+    constructor(yearPeriodMovement: string, monthPeriodMovement: string, dayPeriodMovement: string, totalPositiveMomement: number, totalNegativeMomement: number) {
+        this.yearPeriodMovement = yearPeriodMovement;
+        this.monthPeriodMovement = monthPeriodMovement;
+        this.dayPeriodMovement = dayPeriodMovement;
+        this.totalPositiveMomement = totalPositiveMomement;
+        this.totalNegativeMomement = totalNegativeMomement;
+    }
+}

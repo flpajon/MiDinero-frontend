@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="table-responsive">
-        <!-- <div class="table-responsive p-2"> -->
+            <!-- <div class="table-responsive p-2"> -->
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -18,14 +18,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let user of userList" (click)=foActionItem(user)>
+                    <tr *ngFor="let user of userList" (click)=foActionItem(user)
+                        [ngClass]="user.userIsActive ? 'tr-income' : 'tr-outflows'">
                         <td>{{user.userName | titlecase}}</td>
                         <td>{{user.userPerson.personEmail | titlecase}}</td>
                         <td>{{user.userPerson.personName | titlecase}}</td>
                         <td *ngIf="user.userIsActive">
                             <fa-icon class="me-2" [icon]="faCircleCheck"></fa-icon>
                         </td>
-                        <td  *ngIf="!user.userIsActive">
+                        <td *ngIf="!user.userIsActive">
                             <fa-icon class="me-2" [icon]="faBan"></fa-icon>
                         </td>
                     </tr>
